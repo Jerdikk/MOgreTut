@@ -11,36 +11,16 @@ using MogreNewt.CollisionPrimitives;
 
 namespace MOgreTut
 {
+
+
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Root root = new Root();
-            if (root.ShowConfigDialog())
-            {
-                RenderWindow window = root.Initialise(true, "MOgre3D");
-                SceneManager sceneManager = root.CreateSceneManager(SceneType.ST_GENERIC);
-                Camera camera = sceneManager.CreateCamera("Camera");
-                camera.SetPosition(0, 0, 50);
+            MyOgreApp myOgreApp = new MyOgreApp();
 
-                camera.LookAt(new Vector3(0, 0, 0));
-                camera.NearClipDistance = 5.0f;
-
-                Viewport viewport = window.AddViewport(camera);
-                viewport.BackgroundColour = ColourValue.Black;
-
-                camera.AspectRatio = (float)viewport.ActualWidth / (float)viewport.ActualHeight;
-
-                ResourceGroupManager.Singleton.AddResourceLocation("Media/packs/Sinbad.zip", "Zip");
-                ResourceGroupManager.Singleton.InitialiseAllResourceGroups();
-                Entity ent = sceneManager.CreateEntity("Sinbad.mesh");
-                sceneManager.RootSceneNode.AttachObject(ent);
-
-                AxisAlignedBox axisAlignedBox = ent.BoundingBox;
-
-                root.StartRendering();
-
-            }
+          
                         
         }
     }
