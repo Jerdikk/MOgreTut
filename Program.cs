@@ -35,7 +35,8 @@ namespace MOgreTut
                 ResourceGroupManager.Singleton.InitialiseAllResourceGroups();
                 Entity ent = sceneManager.CreateEntity("Sinbad.mesh");
                 sceneManager.RootSceneNode.AttachObject(ent);
-                
+
+                AxisAlignedBox axisAlignedBox = ent.BoundingBox;
 
                 root.StartRendering();
 
